@@ -1,0 +1,19 @@
+#include<stdio.h>
+//请输出1~100以内的奇偶数
+int main()
+{
+	int a = 1;
+	while (a <= 100)
+	{
+		if (a % 2 == 1)//(a%2!==0)
+		{
+			printf("%d 奇数\n", a);
+		}
+		else
+		{
+			printf("%d 偶数\n", a);
+		}
+		a++;
+	}
+	return 0;
+}
