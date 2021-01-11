@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i = 0;
+	char password[100] = {0};
+	for(i=0;i<3;i++)
+	{
+		printf("请输入密码：\n");
+		scanf_s("%s", password,sizeof(password));
+		if (strcmp(password,"你是猪")==0)//==不能用来比较两个字符串是否相等，应该使用一个库函数--strcmp
+		{
+			printf("输入正确\n");
+			break;
+		}
+	}
+	if (i == 3)//不可省略
+	{
+		printf("输入错误过多，程序将关闭！！！\n");
+	}
+	return 0;
+}
