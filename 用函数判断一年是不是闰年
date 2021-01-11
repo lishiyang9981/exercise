@@ -1,0 +1,23 @@
+#include<stdio.h>
+//用函数判断一年是不是闰年
+int b(int c)
+{
+	if (c % 400 == 0 || c % 4 == 0 && c % 100 != 0)
+	{
+		return 1;
+	}
+	return 0;
+}
+int main()
+{
+	int a = 0;
+	printf("请输入一个年份：");
+	scanf_s("%d", &a);
+	if(b(a)==1)
+	printf("%d年是闰年\n",a);
+	else 
+	{
+		printf("%d年不是闰年\n", a);		
+	}
+	return 0;
+}
