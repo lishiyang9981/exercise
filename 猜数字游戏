@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>//调用rand()函数
+#include<time.h>//调用time()函数
+//猜数字游戏
+void menu()
+{
+	printf("##############################\n");
+	printf("####1.开始游戏  0.结束游戏####\n");
+	printf("##############################\n");
+}
+void game()
+{
+	int a = 0;
+	int guess = 0;
+	//拿时间戳来设置随机数的生成起点
+	//时间戳==当前计算机时间-计算机起始时间（1970.1.1.0.0.0)单位为秒
+	a = rand()%100+1;//生成随机数.生成1~100之间的数字
+	while (1)
+	{
+		printf("请输入一个数字\n");
+		scanf_s("%d", &guess);
+		if (guess > a)
+		{
+			printf("猜大了\n");
+		}
+		else if (guess < a)
+		{
+			printf("猜小了\n");
+		}
+		else
+		{
+			printf("恭喜你猜对了%d这个数\n", a);
+			break;
+		}
+	}
+}
+int main()
+{
+	int input = 0;
+	srand((unsigned int)time(NULL));//强制转换类型为整形.NULL指针为空.放在主函，不要循环调用.
+	do {
+		menu();
+		printf("请选择是否游戏：\n");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0://0为假
+			printf("游戏结束");
+			break;
+		default:
+			printf("输入错误，请重新选择\n");
+			break;
+		}
+	} while (input);
+	return 0;
+}
