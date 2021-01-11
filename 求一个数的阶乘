@@ -14,7 +14,7 @@ int main()
 		{
 			c = c * b;
 			b++;
-		} while (b <= d);
+		} while (b <= d);//关键b<=d
 		e = e + c;
 		d++;
 	}
@@ -23,6 +23,8 @@ int main()
 	return 0;
 }
 
+
+/*
 #include<stdio.h>
 int main()
 {
@@ -40,31 +42,5 @@ int main()
 	printf("%d\n", c);
 	return 0;
 }
+*/
 
-
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-int main()
-{
-	char password[60] = {0};
-	int b;
-	int a;
-	printf("请输入密码：");
-	scanf("%s", &password);//输入密码存放数组password中
-//缓冲区中还剩一个'\n',使用while循环将'\n'读走
-	while ((a = getchar()) != '\n')
-	{
-		;
-	}
-	printf("请输入N/Y确认密码");
-	b=getchar();
-	if (b == 'Y')
-	{
-		printf("确认成功");
-	}
-	else
-	{
-		printf("确认失败");
-	}
-	return 0;
-}
