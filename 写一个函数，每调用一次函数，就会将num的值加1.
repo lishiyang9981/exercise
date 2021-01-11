@@ -1,0 +1,21 @@
+#include<stdio.h>
+//写一个函数，每调用一次函数，就会将num的值加1.
+void add(int* num)
+{
+	(*num)++;//++的优先级比*高，所以要*num用括号括起来
+}
+int main()
+{
+	int num = 0;
+	add(&num);//传址调用
+		printf("num=%d\n", num);
+	add(&num);
+		printf("num=%d\n", num);
+	add(&num);
+		printf("num=%d\n", num);
+	add(&num);
+		printf("num=%d\n", num);
+	add(&num);
+		printf("num=%d\n", num);
+	return 0;
+}
