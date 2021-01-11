@@ -7,8 +7,8 @@ void swap1(int x, int y)
 	x = y;
 	y = tmp;
 }
-//交换内容会失败，因x,y都是独立的地址空间。
-
+/*传值调用
+传值调用形参函数的形参和实参分别占有不同内存块，对形参的修改不会影响实参。因x,y都是独立的地址空间。*/
 void swap2(int* pa, int* pb)
 {
 	int tmp = 0;
@@ -16,14 +16,17 @@ void swap2(int* pa, int* pb)
 	*pa = *pb;
 	*pb = tmp;
 }
-
+/*传址调用
+传址调用是把函数外部创建变量的内存地址传递给函数参数的一种调用函数的方式。
+这种传参方式可以让函数和函数外边的变量建立起正真的联系，也就是函数内部可以直接操
+作函数外部的变量。*/
 int main()
 {
 	//交换失败
 	int c = 0;
 	int d = 0;
 	printf("请输入两个数：\n");
-	scanf_s("%d%d",&c,&d);
+	scanf_s("%d%d", &c, &d);
 	printf("交换前：a=%d b=%d\n", c, d);
 	swap1(c, d);
 	printf("交换后：a=%d b=%d\n\n", c, d);
@@ -35,7 +38,7 @@ int main()
 	scanf_s("%d%d", &a, &b);
 	printf("交换前：a=%d b=%d\n", a, b);
 	swap2(&a, &b);//交换地址
-	printf("交换后：a=%d b=%d\n",a,b);
+	printf("交换后：a=%d b=%d\n", a, b);
 
 	return 0;
 }
