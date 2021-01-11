@@ -1,0 +1,15 @@
+
+#include<stdio.h>
+int main()
+{
+	int a = 1;
+	do
+	{
+		if (a == 3001)
+			break;
+		printf("爱你%d遍\n", a);
+		a++;
+	} 
+	while (a <= 3300);
+	return 0;
+}
