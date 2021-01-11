@@ -1,0 +1,42 @@
+#include<stdio.h>
+//用函数来实现二分查找
+int pp(int arr[], int k, int sz)//此处arr本质上是一个指针
+{
+	int left = 0;
+	int right = sz-1;//数组下标从0开始
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;//求中间元素的下标。因为每次都需要更新mid的值，所以必须放在循环内部
+		if (arr[mid] > k)//一定要用mid下标所对应的值与k相比较
+		{
+			right = mid - 1;
+		}
+		else if (arr[mid] < k)
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			return mid;//返回mid来输出对应值的下标
+		}
+	}
+	return 0;//找不到返回0
+}
+int main()
+{
+	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	/*数组元素个数不能在自定义函数中计算，因为实参arr传递给形参时，只传递了第一个元素的地址。
+	数组在内存中是连续存放的。*/
+	int k = 2;//要查找的数字
+	int a = pp(arr, k, sz);//需要传递几个参数，就用,号隔开
+	if (a == 0)
+	{
+		printf("不好意思，找不到该数字\n");
+	}
+	else
+	{
+		printf("找到了,下标为：%d\n", a);
+	}
+	return 0;
+}
