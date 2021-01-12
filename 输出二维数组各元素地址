@@ -1,0 +1,18 @@
+#include<stdio.h>
+//输出二维数组各元素地址
+int main()
+{
+	int arr[5][5] = { {4,3,4,7,2},{2,4},2,3 };
+	int a = 0;
+	for (; a < 5; a++)
+	{
+		int b = 0;//每一行结束，列下标从0开始，必须放在循环内
+		for (; b <5; b++)
+		{
+			printf("arr[%d][%d]=%p   ",a,b, &arr[a][b]);//输出地址用%p
+			
+		}
+		printf("\n\n");
+	}	
+	return 0;
+}
