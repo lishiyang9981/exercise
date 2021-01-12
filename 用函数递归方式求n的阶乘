@@ -1,0 +1,35 @@
+#include<stdio.h>
+//用函数递归方式求n的阶乘。（不考虑溢出）
+int jc(int i)
+{
+	/*	
+	//循环方式
+	//int a = 0;
+	//int c = 1;
+	//for (a = 1; a <= i; a++)
+	//{
+	//	c = a * c;
+	//}
+	//return c;
+	*/
+
+
+	//递归方式
+	if (i <= 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return i * jc(i - 1);
+	}
+}
+int main()
+{
+	int a = 0;
+	printf("请输入一个数字:");
+	scanf_s("%d", &a);
+	int jg = jc(a);
+	printf("%d!=%d", a, jg);
+	return 0;
+}
