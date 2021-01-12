@@ -1,0 +1,18 @@
+#include<stdio.h>
+//输出二维数组
+int main()
+{
+	int arr[5][5] = { {4,3,4,7,2},{2,4},2,3 };
+	int a = 0;
+
+	for (; a < 5; a++)
+	{
+		int b = 0;//每一行结束，列下标从0开始，必须放在循环内
+		for (; b <5; b++)
+		{
+			printf("%-2d ", arr[a][b]);//-2d使列对齐
+		}
+		printf("\n");
+	}	
+	return 0;
+}
