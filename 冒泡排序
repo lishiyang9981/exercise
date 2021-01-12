@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<windows.h>
+//冒泡排序
+void mp(int arr[],int sz)//冒泡排序函数
+{
+	int i = 0;
+	for (; i < sz-1;i++)
+	{
+		//每一趟冒泡排序
+		int j = 0;
+		int flag = 1;//假设数据已经有序
+		for (j = 0; j < sz-1-i;j++)//sz-1-i是因为每一趟结束，已经排在最后的元素不用参与比较
+		{
+			if (arr[j] > arr[j+1])
+			{
+				int c = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = c;
+				flag = 0;//本趟数据不完全有序
+			}
+		}
+		if (flag == 1)
+		{
+			break;
+		}
+	}
+}
+int main()
+{
+
+	int arr[] = { 6,5,4,3,7,2,9,2,1};
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i = 0;
+	mp(arr,sz);//数组传址
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+		Sleep(500);
+	}
+	return 0;
+}
