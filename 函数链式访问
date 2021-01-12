@@ -1,0 +1,7 @@
+#include<stdio.h>
+//函数链式访问--把一个函数的返回值作为另外一个函数的参数。
+int main()
+{
+	printf("%d",printf("%d",(printf("%d",printf("%d",8986)))) );
+	return 0;
+}
