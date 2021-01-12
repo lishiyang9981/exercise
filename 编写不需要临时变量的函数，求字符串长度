@@ -1,0 +1,31 @@
+#include<stdio.h>
+//编写不需要临时变量的函数，求字符串长度
+int len_arr(char* arr)//arr本质上为一个指针
+{
+	/*int count=0;//有临时变量
+	while (*arr != '\0')
+	{
+		count++;
+		arr++;
+	}
+	//return count;
+	printf("length=%d\n", count);*///可返回值输出，可不返回值输出。
+
+	//函数递归
+	//不需要临时变量
+	if (*arr != '\0')
+	{
+		return 1 + len_arr(arr + 1);
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+	char arr[] = "hello";
+	int len = len_arr(arr);
+	printf("length=%d\n", len);
+	return 0;
+}
