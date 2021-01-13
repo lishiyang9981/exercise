@@ -1,0 +1,31 @@
+#include<stdio.h>
+//条件操作符（三目操作符）使用
+int main()
+{
+/*
+if (a > 5)
+        b = 3;
+else
+        b = -3;
+转换成条件表达式，是什么样？
+*/
+	int a = 6;
+	int b = 0;
+
+	//if语句
+	//if (a > 5)
+	//{
+	//	b = 3;
+	//}
+	//else
+	//{
+	//	b = -3;
+	//}
+
+	//条件操作符
+	b = (a > 5 ? 3 : -3);
+	//   exp1 ? exp2 : exp3
+	//当exp1?为真时 执行exp2. 当exp1?为假时，执行exp3.
+	printf("b=%d", b);
+	return 0;
+}
