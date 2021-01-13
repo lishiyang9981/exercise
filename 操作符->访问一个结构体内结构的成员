@@ -1,0 +1,28 @@
+#include<stdio.h>
+//访问一个结构体内结构的成员
+//结构体指针->成员名
+struct stu
+{
+	/*struct Stu
+	{
+		char name[10];
+		int age;
+		char sex[5];
+		double score;
+	}
+	*/
+	char name[20];
+	int age;//为什么age不是数组呢？
+	int id;//id为什么可以是char类型数组呢？
+};//此处为什么需要加;分号呢?
+int main()
+{
+	struct stu s1 = { "张三",99,99816 };
+	printf("%s\n%d\n%d\n\n", s1.name, s1.age, s1.id);//结构体.成员名 即 s1.name
+
+	struct stu* ps = &s1;
+	printf("%s\n%d\n%d\n\n", (*ps).name, (*ps).age, (*ps).id);//指针*ps要用()括起来 即 (*ps).name
+
+	printf("%s\n%d\n%d\n\n", ps->name, ps->age, ps->id);//结构体指针->成员名  即 ps->name
+	return 0;
+}
