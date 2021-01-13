@@ -1,0 +1,28 @@
+#include<stdio.h>
+//不创建临时变量，交换两个数的值（按位异或法）
+int main()
+{
+	int a = 3;
+	int b = 5;
+	printf("a=%d,b=%d\n", a, b);
+
+	////创建临时变量法
+	//int c = 0;
+	//c = a;
+	//a = b;
+	//b = c;
+	//printf("a=%d,b=%d\n", a, b);
+
+	////加减法(可能溢出)
+	//a = a + b;
+	//b = a - b;
+	//a = a - b;
+	//printf("a=%d,b=%d\n", a, b);
+
+	//按位异或法
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("a=%d,b=%d\n", a, b);
+	return 0;
+}
