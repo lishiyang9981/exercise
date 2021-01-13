@@ -1,0 +1,42 @@
+#include<stdio.h>
+//求一个数的二进制中1的个数（三种方法）
+int main()
+{
+	int a = -1;
+	int i = 0;
+	int count = 0;//计数
+
+  //第一种
+	//该方法对负数无效
+	//while (a)
+	//{
+	//	if (a % 2 == 1)
+	//		count++;
+	//	a = a / 2;
+	//}
+	//printf("二进制中1的个数count= %d\n", count);
+
+
+  //第二种
+	for (i = 0; i < 32; i++)
+	{
+		if (((a >> i) & 1) == 1)
+		{
+			count++;
+		}
+	}
+	printf("二进制中1的个数count=%d\n", count);
+
+  //第三种
+	//该方法更优化，但不容易想到
+	//while (a)
+	//{
+	//	count++;
+	//	a = a & (a - 1);
+	//}
+	//printf("二进制中1的个数count = %d\n", count);
+	/*a和a-1进行按位与运算，将二进制中出现的1从低位到高位依次变成0
+    a=0循环终止，循环的次数就为1的个数*/
+
+	return 0;
+}
