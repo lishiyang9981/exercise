@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<windows.h>
+//交换两个数组的内容（数组一样大）
+void jh(int a[], int b[], int sz)
+{
+	int i = 0;
+	int left = 0;
+	int c = 0;
+	for (i = 0; i < sz; i++)
+	{
+
+		c = a[left];
+		a[left] = b[left];
+		b[left] = c;
+		left++;
+	}
+	printf("a: ");
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", a[i]);
+		Sleep(500);
+	}
+	printf("\nb: ");
+	for (i = 0; i < sz; i++)
+	{
+
+		printf("%d ", b[i]);
+		Sleep(500);
+	}
+
+}
+int main()
+{
+	int a[] = { 1,3,5,7,9 };
+	int b[] = { 2,4,6,8,0 };
+	int sza = sizeof(a) / sizeof(a[0]);
+	jh(a, b,sza);
+	return 0;
+}
