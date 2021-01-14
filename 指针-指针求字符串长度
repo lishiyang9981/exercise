@@ -1,0 +1,20 @@
+#include<stdio.h>
+//指针-指针求字符串长度
+int a(char* a)
+{
+	char* b = a;
+	char* c = a;
+	while (*b != '\0')
+	{
+		b++;
+	}
+	return b - c;//指针-指针
+}
+int main()
+{
+	char arr[] = {"batbit"};
+	char* ps = arr;//可有可无
+	int len = a(ps);
+	printf("length=%d", len);
+	return 0;
+}
