@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<windows.h>
+//习题_在不使用数组下标，用指针打印数组内容
+void sc(int* ps, int sz)//形参可直接用指针*ps接收a，
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", *(ps + i));
+		Sleep(300);
+	}
+
+}
+int main()
+{
+	int a[] = { 9,8,7,6,5,4,3,2,1 };
+	int sz = sizeof(a) / sizeof(a[0]);
+	sc(a, sz);//可以直接传数组名，因为sc函数接收时，对应的形参本质上是一个指针。
+	//int*ps = a;//可以不需要
+	//sc(ps,sz);
+	return 0;
+}
