@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<windows.h>
+//习题_分别打印出一个数在二进制中的奇数位和偶数位
+void jo(int a)
+{
+	int i = 0;
+	printf("奇数位：\n");
+	for (i = 30; i >=0; i -= 2)
+	{
+		printf("%d ", (a >> i) & 1);
+		Sleep(300);
+	}
+	printf("\n奇数位：\n");
+	for (i = 31; i>= 1; i -= 2)
+	{
+		printf("%d ", (a >> i) & 1);
+		Sleep(300);
+	}
+}
+int main()
+{
+	int a = 0;
+	printf("请输入一个数：\n");
+	scanf_s("%d", &a);
+	jo(a);
+	return 0;
+}
