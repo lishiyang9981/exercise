@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<string.h>
+//习题_字符串逆序（递归实现）
+//要求：不能够使用c函数库中的字符串操作函数
+int len(char* a)//用自定义函数代替strlen()
+{
+	int count = 0;
+	while (*a != '\0')
+	{
+		a++;
+		count++;
+	}
+	return count;
+}
+
+/*void nx(char* a)//通过第三变量交换
+{
+	int left = 0;
+	int right = len(a) - 1;//采用函数调用
+						   //	int right = strlen(a) - 1;//此处采用了系统库函数
+	while (left < right)
+	{
+		char b = a[left];
+		a[left] = a[right];
+		a[right] = b;
+		left++;
+		right--;
+	}
+}*/
+void nx(char* a)//通过递归方式
+{
+	char b = a[0];
+	int c = len(a);
+	a[0] = a[c - 1];
+	a[c - 1] = 0;
+	if (len(a + 1) >= 2)
+	{
+		nx(a + 1);//递归调用
+	}
+	a[c-1] = b;
+}
+
+int main()
+{
+	char a[] = {"abcdefg"};
+	/*
+	char s[]="abcde";
+    printf("%c", s[3] ); //输出第四个字符'd'，%c表示输出单个字符
+	*/
+//  printf("%c", a[6]);//% c表示输出单个字符
+	nx(a);
+	printf("%s",a);
+	return 0;
+}
