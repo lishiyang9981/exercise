@@ -1,0 +1,28 @@
+#include<stdio.h>
+//习题_递归实现n的k次方
+double cf(int n, int k)
+{
+	//n^k=n*n^(k-1)
+	if (k < 0)
+	{
+		return(1.0 / (cf(n, -k)));
+	}
+	else if (k == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return n * cf(n, k - 1);
+	}
+}
+int main()
+{
+	int n = 0;
+	int k = 0;
+	printf("请输入一个数n,以及其的次方数k\n");
+	scanf_s("%d%d",&n,&k);
+	double a = cf(n, k);
+	printf("%d ^ %d = %lf \n", n, k, a);
+	return 0;
+}
