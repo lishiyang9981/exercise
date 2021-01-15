@@ -1,0 +1,33 @@
+#include<stdio.h>
+//习题_写一个递归函数，输入一个非负整数，返回组成它的数字之和
+//如输入1234，输出为10（1+2+3+4=10）
+int  zz(int a)//递归方式 
+{     
+
+	if (a > 9)
+	{
+		return zz(a / 10) + a % 10;
+	}
+	else
+	{
+		return a;
+	}
+
+
+	//int b = 0;
+	//while (a != 0)//循环方式
+	//{
+	//	b = b + (a % 10);
+	//	a = a / 10;
+	//}
+	//return b;
+}
+int main()
+{
+	unsigned int a = 0;
+	printf("请输入一个数字");
+	scanf_s("%d", &a);
+	int b= zz(a);
+	printf("%d", b);
+	return 0;
+}
