@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<windows.h>
+//习题_输入一个数a打印a*a乘法表
+void jj(int a)
+{
+	int i = 0;
+	int j = 0;
+	for (i = 1; i <= a; i++)
+	{
+		for (j = 1; j <= i; j++)
+		{
+			int sum = i * j;
+			printf("%d*%d=%-4d  ",j,i,sum);
+		}
+		printf("\n");
+		Sleep(300);
+	}
+}
+int main()
+{
+	int a = 0;
+	printf("请输入一个数:\n");
+	scanf_s("%d", &a);
+	jj(a);
+	return 0;
+}
