@@ -1,0 +1,28 @@
+#include<stdio.h>
+//结构体内成员的类型（也可以是结构体，结构体嵌套）
+typedef struct a//typedef 结构体重新命名
+{
+	int q;
+	char w[20];
+	char e;
+	double r;
+
+}a;//结构体重新命名的名字
+typedef struct b
+{
+	char ch[20];
+	a t;
+	char* p;
+}b;
+int main()
+{
+	char arr[] = "hello world";
+	b g = { "haha",{20,"hehe",'h',3.14},arr };
+	printf("%s\n",g.ch); //haha
+	printf("%d\n", g.t.q);//20
+	printf("%s\n", g.t.w);//hehe
+	printf("%c\n", g.t.e);//w
+	printf("%lf\n", g.t.r);//3.14
+	printf("%s\n", g.p);//hello world
+	return 0;
+}
