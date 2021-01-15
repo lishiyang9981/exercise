@@ -1,0 +1,24 @@
+#include<stdio.h>
+//习题_求两个整数在二进制中不同位的个数
+int bj(int a, int b)
+{
+	int c = a ^ b;//通过按位异或得出不同位为1
+	int count = 0;
+	while (c)
+	{
+		c = c & (c-1);//求出1的个数即为两个整数在二进制中不同位的个数
+		count++;
+	}
+	return count;
+}
+
+int main()
+{
+	int a = 0;
+	int b = 0;
+	printf("请输入两个数：\n");
+	scanf_s("%d%d", &a, &b);
+	int count=bj(a, b);
+	printf("count=%d", count);
+	return 0;
+}
