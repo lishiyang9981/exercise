@@ -1,0 +1,20 @@
+#include<stdio.h>
+//模拟实现库函数strcpy
+void my_strcpy(char* arr1, char* arr2)
+{
+	while (*arr2 != '\0')
+	{
+		*arr1 = *arr2;
+		arr2++;
+		arr1++;
+	}
+	*arr1 = *arr2;//将'\0'给*arr1
+}
+int main()
+{
+	char arr1[] = { "###############" };
+	char arr2[] = { "hello world" };
+	my_strcpy(arr1, arr2);
+	printf("%s\n", arr1);
+	return 0;
+}
