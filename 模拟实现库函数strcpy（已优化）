@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<assert.h>//断言头文件
+//模拟实现库函数strcpy（已优化）
+char* my_strcpy(char* arr1,const char* arr2)
+//const防止*arr被修改，即防止下方误写为while(*arr2++ = *arr1++)
+{
+	char* ret = arr1;
+	assert(*arr2 != NULL);//断言  如果*arr2=NULL,会进行报错
+	assert(*arr1 != NULL);//断言
+	while (*arr1++ = *arr2++)//'\0'ASCII码值为0， while为假 停止循环
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char arr1[] = { "###############" };
+	char arr2[] = { "hello world" };
+	printf("%s\n", my_strcpy(arr1, arr2));//链式访问
+	return 0;
+}
