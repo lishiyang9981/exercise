@@ -1,0 +1,58 @@
+#include<stdio.h>
+//数组指针(存放地址,即指向数组的指针)_及其用法(多用于二维数组)
+void print1(int arr[3][4], int x, int y)//参数是数组形式
+{
+	int i = 0;
+	printf("print1:\n");
+	for (i = 0; i < x; i++)
+	{
+		int j = 0;
+		for (j = 0; j < y; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+}
+void print2(int(*arr)[4], int x, int y)//参数是指针形式
+{
+	int i = 0;
+	printf("print2\n");
+	for (i = 0; i < x; i++)
+	{
+		int j = 0;
+		for (j = 0; j < y; j++)
+		{
+			//printf("%d ", *(*(arr+i)+j));//难以理解
+			//printf("%d ", (*(arr + i))[j]);//较难理解
+			//printf("%d ", *(arr[i] + j));//较易理解
+			printf("%d ",arr[i][j]);//容易理解
+		}
+		printf("\n");
+	}
+
+	/*//引导
+	int a[] = { 1,2,3,4,5,6,7,8,9,0 };
+	int *pa = a;
+	int k = 0;
+	for (k = 0; k < 10; k++)
+	{
+		printf("%d ", a[k]);
+		printf("%d ", pa[k]);
+		printf("%d ",*(a+k));
+		printf("%d ",*(pa+k));//a[k]==*(a+k)==*(pa+k)==pa[k]
+	}
+	*/
+}
+int main()
+{
+	//int a[5] = {0};
+	//int(*pa)[5] = { &a };//数组指针   &a是整个数组的地址而不是首元素的地址
+    //char* b[3] = {0};//指针数组
+	//char* (*pb)[3] = { &b };//数组指针
+	
+	int arr[3][4] = { {1,2,3,4},{2,3,4,5},{3,4,5,6} };
+	print1(arr, 3, 4);//二维数组传参，传的是第一行元素的地址，
+	print2(arr, 3, 4);//可以把二维数组看做一维数组，即第一行数组整体作为首元素
+	return 0;
+}
