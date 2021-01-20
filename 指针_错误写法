@@ -1,0 +1,30 @@
+#include<stdio.h>
+//指针_错误写法
+int main()
+{
+	int a = 3;
+	int* a1 = &a;//错误写法：int* a1 = a;
+	printf("%d  %d\n",a,*a1);
+
+	int b[] = { 1,2,3 };
+	int* b1 = b;//错误写法：int* b1 = &b;
+	int* b2 = &b[2];//错误写法：int* b2 = b[2];
+	printf("%d  %d  %d\n", b[1],*b1,*b2);//错误写法：printf("%d  %d  %d\n", b[1],b1,b2);
+
+	char c = 'w';
+	char* c1 = &c;//错误写法：char* c1 = c;
+	printf("%c  %c\n",c,*c1);//错误写法：printf("%c  %c\n",c,c1);
+
+	char d[] = { 'w','c' };
+	char* d1 = d;//错误写法：char* d1 = &d;
+	char* d2 = &d[1];//错误写法：char* d2 = d[1];
+	printf("%c  %c  %c\n",d[1],*d1,*d2);//错误写法：printf("%c  %c  %c\n",d,d1,d2);
+
+	char e[] = "hello world";
+	char* e1 = e;//错误写法：char* e1 = &e;
+	char* e2 = &e[0];//错误写法：char* e2 = e[0];
+	printf("%s  %s  %s\n",e,e1,e2);//错误写法：printf("%s  %s  %s\n",&e,&e1,&e2);
+	printf("%c %c %c", e[1],e1[4],e2[6]);//错误写法：printf("%c %c %c", &e[1],&e1[4],*e2[6]);
+
+	return 0;
+}
