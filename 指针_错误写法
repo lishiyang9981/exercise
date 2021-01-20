@@ -22,9 +22,10 @@ int main()
 
 	char e[] = "hello world";
 	char* e1 = e;//错误写法：char* e1 = &e;
-	char* e2 = &e[0];//错误写法：char* e2 = e[0];
+	char* e2 = &e[4];//错误写法：char* e2 = e[0];
 	printf("%s  %s  %s\n",e,e1,e2);//错误写法：printf("%s  %s  %s\n",&e,&e1,&e2);
-	printf("%c %c %c", e[1],e1[4],e2[6]);//错误写法：printf("%c %c %c", &e[1],&e1[4],*e2[6]);
+	printf("%c  %c  %c\n", e[1],e1[0],e2[6]);//错误写法：printf("%c %c %c", &e[1],&e1[4],*e2[6]);
+	printf("%c  %c", *e1,*e2);
 
 	return 0;
 }
