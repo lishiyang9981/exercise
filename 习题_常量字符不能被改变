@@ -1,0 +1,29 @@
+#include<stdio.h>
+//习题_常量字符不能被改变
+int main()
+{
+	char a1[] = "abcdef";
+	char a2[] = "abcdef";
+	if (a1 == a2)
+	{
+		printf("a1=a2\n");
+	}
+	else
+	{
+		printf("a1!=a2\n");
+	}
+	const char* b1 = "abcdef";// 常量字符串不能被改变
+	const char* b2 = "abcdef";//所以相同的常量字符串在内存只存在一个
+	if (b1 == b2)
+	{
+		printf("b1=b2\n");
+	}
+	else
+	{
+		printf("b1!=b2\n");
+	}
+	return 0;
+	/*这里b1和b2指向的是一个同一个常量字符串。C/C++会把常量字符串存储到单独的一个内存区域，
+当几个指针。指向同一个字符串的时候，他们实际会指向同一块内存。但是用相同的常量字符串去初始
+化不同的数组的时候就会开辟出不同的内存块。所以a1和a2不同，ab1和b2相同。*/
+}
