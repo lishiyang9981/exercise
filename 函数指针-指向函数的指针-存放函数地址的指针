@@ -1,0 +1,18 @@
+#include<stdio.h>
+//函数指针-指向函数的指针-存放函数地址的指针
+int add(int x, int y)
+{
+	int z = 0;
+	z = x + y;
+	return z;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	printf("请输入两个数：\n");
+	scanf_s("%d%d",&a,&b);
+	int(*p)(int, int) = add;
+	printf("%d + %d = %d", a, b, (*p)(a,b));
+	return 0;
+}
