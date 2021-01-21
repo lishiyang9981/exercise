@@ -13,6 +13,8 @@ int main()
 	printf("请输入两个数：\n");
 	scanf_s("%d%d",&a,&b);
 	int(*p)(int, int) = add;
-	printf("%d + %d = %d", a, b, (*p)(a,b));
+	printf("%d + %d = %d", a, b, (p)(a, b));//无*
+	printf("%d + %d = %d", a, b, (*p)(a,b));//*可以不加
+	printf("%d + %d = %d", a, b, (**p)(a, b));//*可以不加
 	return 0;
 }
