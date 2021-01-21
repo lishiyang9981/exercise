@@ -1,0 +1,61 @@
+#include<stdio.h>
+//函数指针数组-是一个数组-存放的是函数指针（地址）_计算器为例
+int jia(int x, int y)
+{
+	return x + y;
+}
+int jian(int x, int y)
+{
+	return x - y;
+}
+int cheng(int x, int y)
+{
+	return x * y;
+}
+int chu(int x, int y)
+{
+	return x / y;
+}
+int main()
+{
+	//int a = 6, b = 2;
+	//int (*pjia)(int, int) = jia;//函数指针指向一个函数
+	//int(*p[4])(int,int) = { jia,jian,cheng,chu };//函数指针数组包含四个元素，每个元素都是函数地址。
+	//int i = 0;
+	//printf("%d\n",pjia(a,b));
+	//for (i = 0; i < 4; i++)
+	//{
+	//	printf("%d\n",p[i](a,b));
+	//}
+
+	int a = 0, b = 0; 
+	int(*p[5])(int, int) = { 0, jia,jian,cheng,chu };
+	int input = 1;
+	char s[5] = { 0,'+','-','*','/' };
+	while (input)
+	{
+		printf("******************\n");
+		printf("**请选择以下运算**\n");
+		printf("**1.加法  2.减法**\n");
+		printf("**3.乘法  4.除法**\n");
+		printf("**0.即可退出程序**\n");
+		printf("******************\n");
+		scanf_s("%d", &input);
+			if (input <= 4 && input >= 1)
+			{
+				printf("请输入两个整数：\n");
+				scanf_s("%d%d", &a, &b);
+				printf("%d %c %d = %d \n", a,s[input],b, p[input](a, b));
+			}
+		    else if(input == 0)
+			{
+				printf("退出成功，感谢使用\n");
+				break;
+			}
+			else
+			{
+				printf("亲，暂无改选择，请重新选择：\n");
+			}
+	}
+	return 0;
+}
