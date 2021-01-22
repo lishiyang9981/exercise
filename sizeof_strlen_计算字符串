@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+//sizeof_strlen_计算字符串
+	int main()
+	{
+		char arr[] = "abcdef";//包含"\0"
+		printf("%d\n", sizeof(arr));//7  
+		printf("%d\n", sizeof(arr + 0));//4/8  
+		printf("%d\n", sizeof(*arr));//1  *数组名是首元素
+		printf("%d\n", sizeof(arr[1]));//1  
+		printf("%d\n", sizeof(&arr));//4/8  &数组名是整个数组的地址
+		printf("%d\n", sizeof(&arr + 1));//4/8  
+		printf("%d\n", sizeof(&arr[0] + 1));//4/8  
+
+
+		printf("%d\n", strlen(arr));//6
+		printf("%d\n", strlen(arr + 0));//6
+		//printf("%d\n", strlen(*arr));//错误代码
+		//printf("%d\n", strlen(arr[1]));//错误代码
+		//printf("%d\n", strlen(&arr));//err_6
+		//printf("%d\n", strlen(&arr + 1));//err_随机值
+		printf("%d\n", strlen(&arr[0] + 1));//5  从第二个字符b的地址向后数字符
+
+		const char* p = "abcdef";//是一个常量字符串，此处指针P仅存放字符a的地址
+		printf("%d\n", sizeof(p));//4/8  计算指针变量P的大小
+		printf("%d\n", sizeof(p + 1));//4/8  得到的是b的地址
+		printf("%d\n", sizeof(*p));//1
+		printf("%d\n", sizeof(p[0]));//1  int arr[10]; arr[0]==*(arr+0)  p[0]==*(p+0)=='a';
+		printf("%d\n", sizeof(&p));//4/8
+		printf("%d\n", sizeof(&p + 1));//4/8
+		printf("%d\n", sizeof(&p[0] + 1));//4/8
+
+		printf("%d\n", strlen(p));//6
+		printf("%d\n", strlen(p + 1));//5
+		//printf("%d\n", strlen(*p));//错误代码
+		//printf("%d\n", strlen(p[0]));//错误代码
+		//printf("%d\n", strlen(&p));//错误代码_随机值
+		//printf("%d\n", strlen(&p + 1));//错误代码_随机值
+		printf("%d\n", strlen(&p[0] + 1));//5
+		return 0;
+	}
