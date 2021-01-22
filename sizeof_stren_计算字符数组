@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+//sizeof_stren_计算字符数组
+int main()
+{
+    char arr[] = { 'a','b','c','d','e','f' };//没有'0'
+	printf("%d\n", sizeof(arr));//6
+	printf("%d\n", sizeof(arr + 0));//4/8  数组名是首元素地址，(数组名+0)是跳到下0个元素的地址，此处即还是首元素地址
+	printf("%d\n", sizeof(*arr));//1  数组名是首元素地址，*数组名表示首元素
+	printf("%d\n", sizeof(arr[1]));//1  第二个元素
+	printf("%d\n", sizeof(&arr));//4/8  整个数组的地址
+	printf("%d\n", sizeof(&arr + 1));//4/8  跳到下一个数组的地址
+	printf("%d\n", sizeof(&arr[0] + 1));//4/8  首元素跳到下一个元素的地址
+
+	printf("%d\n", strlen(arr));//随机值
+	printf("%d\n", strlen(arr + 0));//随机值
+	//printf("%d\n", strlen(*arr));//错误代码
+	//printf("%d\n", strlen(arr[1]));//错误代码
+	//printf("%d\n", strlen(&arr));//随机值
+	//printf("%d\n", strlen(&arr + 1));//随机值-6
+	printf("%d\n", strlen(&arr[0] + 1));//随机值-1
+
+
+	return 0;
+}
