@@ -1,0 +1,26 @@
+#include<stdio.h>
+//通过联合体求大小端存储
+int key()
+{
+	union key
+	{
+		char c;
+		int i;
+	}s;
+	s.i = 1;
+	return s.c;
+}
+int main()
+{
+	int a = 1;
+	int ret = key();
+	if (ret == 1)
+	{
+		printf("小端");
+	}
+	else
+	{
+		printf("大端");
+	}
+	return 0;
+}
