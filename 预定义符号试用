@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+//预定义符号试用
+int main()
+{
+	printf("%s\n", __FILE__);//进行编译的源文件
+	printf("%d\n", __LINE__);//文件当前的行号
+	printf("%s\n", __DATE__);//文件被编译的日期
+	printf("%s\n", __TIME__);//文件被编译的时间
+	
+	//写日志文件
+	int i = 0;
+	int arr[10] = { 0 };
+	FILE* pf = fopen("log.txt", "w");//打开/创建文件
+	for (i = 0; i < 10; i++)
+	{
+		arr[i] = i;
+		fprintf(pf,"file:%s line:%d date:%s time:%s\n " ,__FILE__, __LINE__,__DATE__,__TIME__);
+		printf("%d ", arr[i]);
+	}
+	fclose(pf);//关闭文件
+	pf = NULL;
+	return 0;
+}
