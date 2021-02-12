@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+/*#define_带副作用的宏参数
+当宏参数在宏的定义中出现超过一次的时候，如果参数带有副作用，那么你在使用这个宏的时候就可能出现危险，导
+致不可预测的后果。副作用就是表达式求值的时候出现的永久性效果。 例如：
+x+1;//不带副作用
+x++;//带有副作用*/
+#define MAX(x,y) ((x)>(y)?(x):(y))
+int main()
+{
+	int a = 10;
+	int b = 11;
+	int max = MAX(a++, b++);
+//  int max=((a++)>(b++)?(a++):(b++));传参时不计算，完整传参
+	printf("%d\n",max);//12
+	printf("%d\n", a);//11
+	printf("%d\n", b);//13
+	return 0;
+}
