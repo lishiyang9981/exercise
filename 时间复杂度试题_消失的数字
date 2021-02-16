@@ -1,0 +1,72 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+//时间复杂度试题_消失的数字
+/*
+数组中包含从0到n的所有整数，但其中缺了一个。
+请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？
+*/
+void mp(int a[], int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz-1; i++)//n个元素至多需要n-1趟冒泡排序
+	{
+		int j = 0;
+		int flag = 1;//假设这一趟已经有序
+		for (j = 0; j < sz - 1 - i; j++)//sz-1-i是因为每一趟结束，已经排在最后的元素不用参与比较
+		{
+			int c = 0;
+			if (a[j] > a[j + 1])
+			{
+				c = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = c;
+				flag = 0;//这一趟不完全有序
+			}
+		}
+		if (flag == 1)
+		{
+			break;
+		}
+	}
+}
+int cz(int a[], int sza)
+{
+	int i = 0;
+
+	for (i = 0; i < sza; i++)
+	{
+		if ((a[i]) != i)//((a[i]^i)!=0)
+			return i;
+	}
+}
+
+int main()
+{
+	int a[4] = { 1,4,2,0 };
+	int n = 0;
+	int sza = sizeof(a) / sizeof(a[0]);
+
+	//解法一 _核心思想：异或
+	for(int j = 0;j<sza;j++)//j<sza 因为少了一个数
+	{
+		n ^= a[j];
+	}
+	for (int j = 0; j <= sza; j++)//j<=saz 因为一共有sza个数
+	{
+		n ^= j;
+	}
+	printf("%d\n",n);
+
+
+	//解法二 _不考虑条件 先排序 再比较
+	mp(a, sza);//冒泡排序
+	int i = 0;
+	for (i = 0; i < sza; i++)
+	{
+		printf("%d ",a[i]);
+	}
+	int num = cz(a,sza);
+	printf("\n%d\n",num);
+	return 0;
+}
