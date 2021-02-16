@@ -4,7 +4,7 @@
 void mp(int arr[],int sz)//冒泡排序函数
 {
 	int i = 0;
-	for (; i < sz-1;i++)
+	for (; i < sz-1;i++)//n个元素需要n-1趟冒泡排序
 	{
 		//每一趟冒泡排序
 		int j = 0;
