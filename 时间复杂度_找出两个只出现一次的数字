@@ -1,0 +1,58 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+//时间复杂度_找出两个只出现一次的数字
+/*
+一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。
+请写程序找出这两个只出现一次的数字。
+要求时间复杂度是O(n)，空间复杂度是O(1)。
+*/
+int main()
+{
+	int arr[] = {5,3,7,8,5,3,6,6};
+	int ret = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int x1 = 0, x2 = 0;//假设只出现一次的两个数为x1,x2
+	for (int i = 0; i < sz; i++)
+	{
+		ret ^= arr[i];
+	}
+	printf("%d\n", ret);//此时ret==x1^x2
+	
+	int m = 0;
+	while (m < 32)
+	{
+		if (ret & (1 << m))//if(1)即为真，break 跳出循环
+			break;
+		else
+			m++;
+
+	}
+
+	//因为ret=x1^x2,而且x1 ！= x2,所以x1 与 x2 总有一位不相同，因此ret不会等于0。
+	for (int i = 0; i < sz; i++)
+	{
+		if (arr[i] & (1 << m))//      
+		{
+			x1 ^= arr[i]; //第m位为1的分为一组进行异或运算
+		}
+		else
+			x2 ^= arr[i];//第m为0的进行异或运算
+	}
+	int* a = (int*)malloc(sizeof(int) * 2);//指针a指向开辟的动态内存空间首地址
+	if (a == NULL)
+	{
+		printf("a_error:%s", strerror(errno));
+	}
+	else
+	{
+		a[0] = x1;
+		a[1] = x2;
+		printf("%d %d \n", a[0], a[1]);
+	}
+	free(a);
+	a = NULL;
+	return 0;
+}
